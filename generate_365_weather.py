@@ -11,9 +11,12 @@ Writes output to `API.json` in the same folder.
 
 import json
 import random
+import time
 
 from typing import Literal, List, TypedDict
 from datetime import date, timedelta
+
+start = time.time()
 
 random.seed(42)
 
@@ -91,3 +94,6 @@ with open(OUT_PATH, "w", encoding="utf-8") as f:
     json.dump(data, f, ensure_ascii=False, indent=2)
 
 print(f"[✅] Wrote {len(data)} entries to {OUT_PATH}")
+
+end = time.time()
+print(f"[⌛️] Program execution time: >>>{end-start:.10f}s <<<")
